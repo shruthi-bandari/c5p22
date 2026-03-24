@@ -1,0 +1,21 @@
+<h1>Items List</h1>
+<a href="/create"><button style="background-color: #007bff; color: white; padding: 10px; border: none; border-radius: 5px;">Add New Item</button></a>
+<table border="1" style="width: 80%; margin-top: 20px; border-collapse: collapse;">
+    <tr style="background-color: #f2f2f2;">
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    <% items.forEach(item => { %>
+    <tr>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td>
+            <a href="/edit/<%= item._id %>"><button style="background-color: #ffc107;">Edit</button></a>
+            <form action="/delete/<%= item._id %>" method="POST" style="display:inline;">
+                <button style="background-color: #dc3545; color: white;">Delete</button>
+            </form>
+        </td>
+    </tr>
+    <% }) %>
+</table>
